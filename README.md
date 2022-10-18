@@ -6,7 +6,7 @@ To work with this example:
 
 1. Clone the repository::
 
-    git clone https://github.com/flask-admin/flask-admin.git
+    git clone https://github.com/glnnlhmn/flask_security_admin_demo.git
     cd flask_security_admin_demo
 
 2. Create and activate a virtual environment::
