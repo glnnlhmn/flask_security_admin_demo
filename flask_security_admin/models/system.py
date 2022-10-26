@@ -27,7 +27,7 @@ class User(Base, UserMixin):
     __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
     email = Column(String(255), unique=True)
-    username = Column(String(255), unique=True, nullable=True)
+    username = Column(String(255), unique=True)
     password = Column(String(255), nullable=False)
     last_login_at = Column(DateTime())
     current_login_at = Column(DateTime())
@@ -41,4 +41,4 @@ class User(Base, UserMixin):
                          backref=backref('users', lazy='dynamic'))
 
     def __str__(self):
-        return self.username
+        return self.email

@@ -18,14 +18,8 @@ class MyView(BaseView):
 
 # Create app
 app = Flask(__name__)
-app.config['DEBUG'] = True
+app.config.from_pyfile('demo_config.py')
 
-# Generate a nice key using secrets.token_urlsafe()
-app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY", 'pf9Wkove4IKEAXvy-cQkeDPhv9Cb3Ag-wyJILbq_dFw')
-# Bcrypt is set as default SECURITY_PASSWORD_HASH, which requires a salt
-# Generate a good salt using: secrets.SystemRandom().getrandbits(128)
-app.config['SECURITY_PASSWORD_SALT'] = os.environ.get("SECURITY_PASSWORD_SALT",
-                                                      '146585145368132386173505678016728509634')
 
 # Setup Flask-Security
 user_datastore = SQLAlchemySessionUserDatastore(db_session, User, Role)
@@ -45,7 +39,7 @@ def home():
 
 def main():
     with app.app_context():
-        # init_db()     # Uncomment this line to create initial database
+        init_db()     # Uncomment this line to create initial database
         if not app.security.datastore.find_user(email="test@me.com"):
             app.security.datastore.create_user(email="test@me.com", password=hash_password("password"))
         db_session.commit()

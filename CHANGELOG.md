@@ -2,13 +2,18 @@
 
 ## Unreleased
 
+## Released on Oct 26, 2022
+
 ### Added
 
 * Added CHANGELOG.md
+* Added demo_config.py
 
 ### Changed
 
-* Modified import of declarative_base directly from sqlalchemy.orm
+* Moved the location of sample database file
+* Renamed sample database
+* Modified flask is configured
 
 
 ### Removed
@@ -22,8 +27,6 @@
 * First version of flask_security_admin_demo, containing:
 	- database model,
 	- html template,
-	- Contributing guidelines
-	- License
 	- README
 	- Requirements.txt
 	- Setup configuration

@@ -17,11 +17,9 @@ To work with this example:
 3. Install requirements::
 
     pip install -r 'requirements.txt'
-
-To Run the application::
-
     pip install -e ./
 
+To Run the application::
     flask_sec_admin
 
 ### First time executing this you need to create the database and tables.
