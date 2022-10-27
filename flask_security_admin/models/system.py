@@ -1,9 +1,14 @@
-from flask_security_admin.database import Base
-from flask_security import UserMixin, RoleMixin
+# flask_security_admin/models/system
+
+# SQLAlchemy imports
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy import Boolean, DateTime, Column, Integer, \
     String, ForeignKey, UnicodeText
 
+# Flask_security imports
+from flask_security import UserMixin, RoleMixin
+
+from flask_security_admin.database import Base
 
 class UsersRoles(Base):
     __tablename__ = 'users_roles'
@@ -27,7 +32,7 @@ class User(Base, UserMixin):
     __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
     email = Column(String(255), unique=True)
-    username = Column(String(255), unique=True)
+    username = Column(String(255), unique=True, nullable=False)
     password = Column(String(255), nullable=False)
     last_login_at = Column(DateTime())
     current_login_at = Column(DateTime())

@@ -45,6 +45,7 @@ node_modules/
 *.log
 *.sql
 *.sqlite
+*.db
 
 # ignore compiled files
 *.com

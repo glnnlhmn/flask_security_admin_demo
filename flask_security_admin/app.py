@@ -1,13 +1,18 @@
-import os
+# flask_security_admin/app.py
 
 from flask import Flask
+
+# flask security imports
 from flask_security import Security, auth_required, hash_password, \
     SQLAlchemySessionUserDatastore
-from flask_security_admin.database import db_session, init_db
-from flask_security_admin.models.system import User, Role
 
+# flask_admin imports
 from flask_admin import Admin, BaseView, expose
 from flask_admin.contrib.sqla import ModelView
+
+# flask_security_admin imports
+from flask_security_admin.database import db_session, init_db
+from flask_security_admin.models.system import User, Role
 
 
 class MyView(BaseView):
@@ -25,7 +30,7 @@ app.config.from_pyfile('demo_config.py')
 user_datastore = SQLAlchemySessionUserDatastore(db_session, User, Role)
 app.security = Security(app, user_datastore)
 
-admin = Admin(app)
+admin = Admin(app, template_mode='bootstrap4')
 admin.add_view(ModelView(User, db_session))
 admin.add_view(ModelView(Role, db_session))
 

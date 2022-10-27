@@ -1,4 +1,26 @@
 {% extends 'admin/master.html' %}
+{% block head_css %}
+{{ super() }}
+    <link href="{{ url_for('static', filename='sb-admin-2.css') }}" rel="stylesheet">
+{% endblock head_css %}}
+
 {% block body %}
-    Hello World from MyView!
+
+{{ super() }}
+    <div class="col-lg-10">
+        <div class="panel panel-heading">
+            <div class="panel-heading">
+                <h1>Customized Home Page</h1>
+                <div class="row ml-lg-1">
+                    <p>This is a demonstration of how to customize the Home page in the flask_admin template.</p>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <span class="pull-left">Demo prepare by Glenn Lehman</span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
 {% endblock %}
